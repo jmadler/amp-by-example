@@ -1,0 +1,48 @@
+<!--
+  #### Introduction
+
+  The AMP HTML Runtime provides a handful of CSS classes to help identify form factors.  These are in addition to the dynamic css classes provided by the <amp-dynamic-css-classes> component.
+
+  To demonstrate usage, we've set up a number of helper classes that are conditionally set based on the existance of the form factor classes on the body tag.
+-->
+<!doctype html>
+<html ⚡>
+<head>
+  <meta charset="utf-8">
+  <link rel="canonical" href="<%host%>/advanced/helper_css_classes/" >
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+</head>
+<style amp-custom>
+  body:not(.amp-mode-touch) .if-amp-mode-touch, 
+  body:not(.amp-mode-mouse) .if-amp-mode-mouse, 
+  body:not(.amp-mode-keyboard-active) .if-amp-mode-keyboard-active {
+    display: none;
+  }
+
+  body.amp-mode-touch .if-not-amp-mode-touch,
+  body.amp-mode-mouse .if-not-amp-mode-mouse, 
+  body.amp-mode-keyboard-active .if-not-amp-mode-keyboard-active {
+    display: none;
+  }
+</style>
+<body>
+  <!-- #### Basic Usage -->
+  <!--
+    amp-mode-touch - this class is set when touch input is detected
+  -->
+    <span class="if-amp-mode-touch">amp-mode-touch is defined!</span>
+    <span class="if-not-amp-mode-touch">amp-mode-touch is not defined!</span>
+  <!--
+    amp-mode-mouse - this class is set when mouse input is detected
+  -->
+    <span class="if-amp-mode-mouse">amp-mode-mouse is defined!</span>
+    <span class="if-not-amp-mode-mouse">amp-mode-mouse is not defined!</span>
+  <!--
+    amp-mode-keyboard-active - this class is set when an active keyboard input is detected
+  -->
+    <span class="if-amp-mode-keyboard-active">amp-mode-keyboard-active is defined!</span>
+    <span class="if-not-amp-mode-keyboard-active">amp-mode-keyboard-active is not defined!</span>
+</body>
+</html>
